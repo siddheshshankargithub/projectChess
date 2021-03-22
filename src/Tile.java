@@ -27,6 +27,24 @@ public abstract class Tile
             // Since there is no piece on an empty tile hence an empty tile will return null
             return null;
         }
+        public static final class OccupiedTile extends Tile
+        {
+            Piece pieceOnThatTile;
+            OccupiedTile(int tileCoordinateNumber, Piece pieceOnThatTile)
+            {
+                super(tileCoordinateNumber);
+                this.pieceOnThatTile = pieceOnThatTile;
+            }
+            @Override
+            public boolean isTileOccupancy() {
+                return false;
+            }
 
+            @Override
+            public Piece getPiece()
+            {
+                return this.pieceOnThatTile;
+            }
+        }
     }
 }
