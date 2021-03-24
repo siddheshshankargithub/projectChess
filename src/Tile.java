@@ -11,22 +11,21 @@ public abstract class Tile
     public abstract Piece getPiece();
 
     //sub-classes that represent an empty tile or an occupied tile.
-    public static final class EmptyTile extends Tile
-    {
-        EmptyTile(int coord)
-        {
+    public static final class EmptyTile extends Tile {
+        EmptyTile(int coord) {
             super(coord);
         }
+
         @Override
-        public boolean isTileOccupancy()
-        {
+        public boolean isTileOccupancy() {
             return false;
         }
-        public Piece getPiece()
-        {
+
+        public Piece getPiece() {
             // Since there is no piece on an empty tile hence an empty tile will return null
             return null;
         }
+    }
         public static final class OccupiedTile extends Tile
         {
             Piece pieceOnThatTile;
@@ -37,7 +36,7 @@ public abstract class Tile
             }
             @Override
             public boolean isTileOccupancy() {
-                return false;
+                return true;
             }
 
             @Override
@@ -46,5 +45,5 @@ public abstract class Tile
                 return this.pieceOnThatTile;
             }
         }
-    }
+
 }
